@@ -1,23 +1,43 @@
 
 import { Task } from '../../interfaces/Task';
 import {
-  Container, Description, TodoValue, WrapperDescription
+  ButtonIcon,
+  Container, 
+  Description, 
+  EditIcon, 
+  TodoValue, 
+  TrashIcon, 
+  WrapperContent, 
+  WrapperDescription, 
+  WrapperIcon
 } from './styles';
 
 interface Props {
   task: Task;
+  handleRemoveTask: () => void;
 }
 
 export const Todo = ({
-  task
+  task,
+  handleRemoveTask
 }: Props) => {
   return (
     <Container>
-      <TodoValue>{task.title}</TodoValue>
-      <WrapperDescription>
-        <Description>{task.description}</Description>
-        <Description>{task.data}</Description>
-      </WrapperDescription>
+      <WrapperContent>
+        <TodoValue>{task.title}</TodoValue>
+        <WrapperDescription>
+          <Description>{task.description}</Description>
+          <Description>{task.data}</Description>
+        </WrapperDescription>
+      </WrapperContent>
+      <WrapperIcon>
+        <ButtonIcon>
+          <EditIcon />
+        </ButtonIcon>
+        <ButtonIcon onClick={handleRemoveTask}>
+          <TrashIcon />
+        </ButtonIcon>
+      </WrapperIcon>
     </Container>
   );
 }
