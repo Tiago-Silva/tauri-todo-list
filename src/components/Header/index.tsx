@@ -23,15 +23,11 @@ export const Header = ({
   todo
 }: Props) => {
 
-  const handleFolderIcon: React.MouseEventHandler<HTMLButtonElement> = (e) => {
-    console.log('Folder icon clicked');
-  }
-
   return (
 
     <Container>
       <Wrapper>
-        <WrapperIcon onClick={handleFolderIcon}>
+        <WrapperIcon onClick={() => {}}>
           <FolderIcon />
         </WrapperIcon>
 

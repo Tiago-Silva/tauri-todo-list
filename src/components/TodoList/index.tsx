@@ -57,11 +57,6 @@ export const TodoList = ({
     setShowForm(!showForm);
   }
 
-  const handleButtonForwards = () => {
-    setStap(0);
-    setShowForm(!showForm);
-  }
-
   const handleRemoveTask = (index: number) => {
     const newTasks = tasks.filter((_, i) => i !== index);
     setTasks(newTasks);
