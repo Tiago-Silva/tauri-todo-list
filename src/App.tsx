@@ -1,14 +1,24 @@
 
 import { TodoList } from "./components/TodoList";
 import { Header } from "./components/Header";
+import { useState } from "react";
 
 function App() {
+  const [taskTodo, setTaskTodo] = useState<number>(0);
+
+  const handleTaskTodo = (qtd: number) => {
+    setTaskTodo(qtd);
+  }
 
   return (
     <div className="container">
-      <Header />
+      <Header 
+        todo={taskTodo}
+      />
 
-      <TodoList />
+      <TodoList 
+        handleTaskTodo={handleTaskTodo}
+      />
     </div>
   );
 }

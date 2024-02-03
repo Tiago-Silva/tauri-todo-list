@@ -15,13 +15,20 @@ import {
   WrapperIcon
 } from './styles';
 
-export const Header = () => {
+interface Props {
+  todo: number;
+}
+
+export const Header = ({
+  todo
+}: Props) => {
 
   const handleFolderIcon: React.MouseEventHandler<HTMLButtonElement> = (e) => {
     console.log('Folder icon clicked');
   }
 
   return (
+
     <Container>
       <Wrapper>
         <WrapperIcon onClick={handleFolderIcon}>
@@ -34,7 +41,7 @@ export const Header = () => {
 
         <Todo>
           <TodoText>
-            To do (<TodoValue>5</TodoValue>)
+            To do (<TodoValue>{todo}</TodoValue>)
           </TodoText>
         </Todo>
 

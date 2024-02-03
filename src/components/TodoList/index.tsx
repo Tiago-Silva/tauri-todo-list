@@ -26,7 +26,13 @@ import { useSpring, animated } from '@react-spring/web';
 
 export type taskData = z.infer<typeof taskSchema>;
 
-export const TodoList = () => {
+interface Props {
+  handleTaskTodo: (qtd: number) => void;
+}
+
+export const TodoList = ({
+  handleTaskTodo
+}: Props) => {
   const [tasks, setTasks] = useState<taskData[]>([]);
   const [showForm, setShowForm] = useState(false);
   const [stap, setStap] = useState<number>(0);
@@ -40,6 +46,9 @@ export const TodoList = () => {
       if (response) {
         setTasks([...tasks, response]);
       }
+
+      handleTaskTodo(tasks.length + 1);
+
       reset();
   };
 
