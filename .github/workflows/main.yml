@@ -32,8 +32,23 @@ jobs:
       - name: Build Tauri app
         run: yarn tauri build
 
-      - name: Upload artifact
+      - name: Upload artifact (Windows)
+        if: runner.os == 'Windows'
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ matrix.os }}
+          name: windows
           path: src-tauri/target/release/*.exe
+
+      - name: Upload artifact (Linux)
+        if: runner.os == 'Linux'
+        uses: actions/upload-artifact@v2
+        with:
+          name: linux
+          path: src-tauri/target/release/*
+
+      - name: Upload artifact (macOS)
+        if: runner.os == 'macOS'
+        uses: actions/upload-artifact@v2
+        with:
+          name: macos
+          path: src-tauri/target/release/*.app
