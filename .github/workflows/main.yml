@@ -37,18 +37,18 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: windows
-          path: src-tauri/target/release/*.exe
+          path: src-tauri/target/release/bundle/msi/*.msi
 
       - name: Upload artifact (Linux)
         if: runner.os == 'Linux'
         uses: actions/upload-artifact@v2
         with:
           name: linux
-          path: src-tauri/target/release/YourAppName
+          path: src-tauri/target/release/bundle/deb/*.deb
 
       - name: Upload artifact (macOS)
         if: runner.os == 'macOS'
         uses: actions/upload-artifact@v2
         with:
           name: macos
-          path: src-tauri/target/release/bundle/osx/YourAppName.app
+          path: src-tauri/target/release/bundle/macos/*.app
