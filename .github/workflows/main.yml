@@ -44,11 +44,11 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: linux
-          path: src-tauri/target/release/*
+          path: src-tauri/target/release/YourAppName
 
       - name: Upload artifact (macOS)
         if: runner.os == 'macOS'
         uses: actions/upload-artifact@v2
         with:
           name: macos
-          path: src-tauri/target/release/*.app
+          path: src-tauri/target/release/bundle/osx/YourAppName.app
